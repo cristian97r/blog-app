@@ -8,17 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cristian97r/BlogApp.git"
+    "url": "git+https://github.com/cristian97r/blog-app.git"
   },
   "author": "Cristian Romero",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cristian97r/BlogApp/issues"
+    "url": "https://github.com/cristian97r/blog-app/issues"
   },
-  "homepage": "https://github.com/cristian97r/BlogApp#readme",
+  "homepage": "https://github.com/cristian97r/blog-app#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongoose": "^5.4.4"
-  }
+  },
+  "devDependencies": {}
 }
