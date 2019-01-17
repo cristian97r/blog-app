@@ -26,7 +26,7 @@ app.get("/", function(req, res) {
     res.redirect("/blogs")
 });
 
-
+// INDEX
 app.get("/blogs", function(req, res) {
     Blog.find({}, function(error, blogs) {
        if(error) {
@@ -37,6 +37,32 @@ app.get("/blogs", function(req, res) {
     });    
 });
 
+// NEW
+app.get("/blogs/new", function(req, res) {
+    res.render("new")
+});
+
+// CREATE
+app.post("/blogs", function(req, res) {
+    Blog.create(req.body.blog, function(error, newBlog) {
+        if(error){
+            console.log(error)
+        } else {
+            res.redirect("/blogs");
+        }
+    })
+});
+
+// SHOW
+app.get("/blogs/:id", function(req, res) {
+    Blog.findById(req.params.id, function(error, blogFound) {
+        if(error){
+            console.log(error)
+        } else {
+            res.render("show", {blog: blogFound});
+        }
+    });
+});
 
 app.listen(3001, function(){
     console.log("the app is running on port 3001")
