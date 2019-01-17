@@ -81,7 +81,7 @@ app.get("/blogs/:id/edit", function(req, res) {
 // UPDATE
 
 app.put("/blogs/:id", function(req, res) {
-    Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(error, updatedBlog) {
+    Blog.findOneAndUpdate(req.params.id, req.body.blog, function(error, updatedBlog) {
         if(error){
             res.redirect("/blogs")
         } else {
@@ -89,6 +89,20 @@ app.put("/blogs/:id", function(req, res) {
         }
     });
 });
+
+// DESTROY
+
+app.delete("/blogs/:id", function(req, res) {
+    Blog.findOneAndRemove(req.params.id, function(error) {
+        if(error){
+            res.redirect("/blogs")
+        } else {
+            res.redirect("/blogs")
+        }
+    })
+});
+
+
 
 app.listen(3001, function(){
     console.log("the app is running on port 3001")
