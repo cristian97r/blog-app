@@ -3,9 +3,13 @@ i.icon {
 }
 
 .container.segment {
-    margin-top: 7.0em
+    margin-top: 7.0em;
 }
 
 #delete {
     display: inline;
+}
+
+div.ui.main {
+    margin-top: 7.0em;
 }
