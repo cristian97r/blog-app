@@ -6,7 +6,8 @@ express = require("express"),
 app = express();
 
 //APP CONFIG
-mongoose.connect('mongodb://localhost:27017/blog-app', {useNewUrlParser: true});
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/blog-app"
+mongoose.connect('url', {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method")); 
 app.use(express.static("public"));
@@ -112,6 +113,6 @@ app.delete("/blogs/:id", function(req, res) {
 
 
 
-app.listen(3001, function(){
-    console.log("the app is running on port 3001")
+app.listen(process.env.PORT, process.env.IP, function(){
+    console.log("the app is running")
 });
