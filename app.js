@@ -7,7 +7,7 @@ app = express();
 
 //APP CONFIG
 var url = process.env.DATABASEURL || "mongodb://localhost:27017/blog-app"
-mongoose.connect('url', {useNewUrlParser: true});
+mongoose.connect(url, {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method")); 
 app.use(express.static("public"));
